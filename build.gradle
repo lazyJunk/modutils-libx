@@ -1,0 +1,19 @@
+buildscript {
+    apply from: 'https://raw.githubusercontent.com/noeppi-noeppi/ModUtils/v2/buildscript.gradle', to: buildscript
+}
+
+apply from: 'https://raw.githubusercontent.com/noeppi-noeppi/ModUtils/v2/mod.gradle'
+apply plugin: 'io.github.noeppi_noeppi.tools.modgradle.cursedep'
+
+repositories {
+    maven { url "https://maven.melanx.de/" }
+}
+
+dependencies {
+    annotationProcessor fg.deobf("io.github.noeppi_noeppi.mods:LibX:${libx_version}")
+
+    implementation fg.deobf("io.github.noeppi_noeppi.mods:LibX:${libx_version}")
+
+    //Example curse maven implementation using modgradle cursedep
+    implementation curse.mod(324717, 3468298) // Jade
+}
